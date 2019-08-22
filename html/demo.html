@@ -7,6 +7,7 @@
     <title>浏览器下载</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
+    <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.js"></script>
 </head>
 <body>
@@ -17,7 +18,57 @@
     <p>重置浏览器大小查看效果!</p>
 </div>
 
-<div class="container">
+<div class="container" style="margin-top: 2vh">
+
+    <!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+  </li>
+</ul>
+
+
+
+
+    <!-- Nav pills -->
+<ul class="nav nav-pills" style="margin-top: 2vh">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="pill" href="#home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="pill" href="#menu1">Menu 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="pill" href="#menu2">Menu 2</a>
+  </li>
+</ul>
+
+
+
+
+
+    <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu1" class="container tab-pane fade"><br>
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="container tab-pane fade"><br>
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+  </div>
+
     <div class="row">
         <div class="col-sm-4">
             <h3>第一列</h3>
@@ -35,6 +86,44 @@
             <p>学的不仅是技术，更是梦想！！！</p>
         </div>
     </div>
+</div>
+
+<div class="container-fluid">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Sex</th>
+                <th>Example</th>
+                <th>Example</th>
+                <th>Example</th>
+                <th>Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Anna</td>
+                <td>Pitt</td>
+                <td>35</td>
+                <td>New York</td>
+                <td>USA</td>
+                <td>Female</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 <div class="container">
@@ -73,6 +162,14 @@
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim
             </p>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 2vh">
+    <div class="row">
+        <div style="margin: 0 auto">
+            <img src="../img/demo.png" class="rounded" alt="Cinque Terre">
         </div>
     </div>
 </div>

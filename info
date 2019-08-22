@@ -1,0 +1,324 @@
+Bootstrap4 是 Bootstrap 的最新版本，与 Bootstrap3 相比拥有了更多的具体的类以及把一些有关的部分变成了相关的组件。同时 Bootstrap.min.css 的体积减少了40%以上。
+Bootstrap4 放弃了对 IE8 以及 iOS 6 的支持，现在仅仅支持 IE9 以上 以及 iOS 7 以上版本的浏览器
+
+css 引用
+<link rel="stylesheet" href="">
+
+编码
+<meta charset="utf-8">
+
+为了让 Bootstrap 开发的网站对移动设备友好，确保适当的绘制和触屏缩放，需要在网页的 head 之中添加 viewport meta 标签
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+width=device-width 表示宽度是设备屏幕的宽度。
+initial-scale=1 表示初始的缩放比例。
+shrink-to-fit=no 自动适应手机屏幕的宽度。
+
+
+.container 类用于固定宽度并支持响应式布局的容器。
+.container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。
+
+.col- 针对所有设备
+.col-sm- 平板 - 屏幕宽度等于或大于 576px
+.col-md- 桌面显示器 - 屏幕宽度等于或大于 768px)
+.col-lg- 大桌面显示器 - 屏幕宽度等于或大于 992px)
+.col-xl- 超大桌面显示器 - 屏幕宽度等于或大于 1200px)
+
+网格每一行需要放在设置了 .container (固定宽度) 或 .container-fluid (全屏宽度) 类的容器中，这样就可以自动设置一些外边距与内边距。
+使用行来创建水平的列组。
+内容需要放置在列中，并且只有列可以是行的直接子节点。
+预定义的类如 .row 和 .col-sm-4 可用于快速制作网格布局。
+列通过填充创建列内容之间的间隙。 这个间隙是通过 .rows 类上的负边距设置第一行和最后一列的偏移。
+网格列是通过跨越指定的 12 个列来创建。 例如，设置三个相等的列，需要使用用三个.col-sm-4 来设置。
+Bootstrap 3 和 Bootstrap 4 最大的区别在于 Bootstrap 4 现在使用 flexbox（弹性盒子） 而不是浮动。 Flexbox 的一大优势是，没有指定宽度的网格列将自动设置为等宽与等高列
+
+
+<div class="row">
+  <div class="col-*-*"></div>
+</div>
+<div class="row">
+  <div class="col-*-*"></div>
+  <div class="col-*-*"></div>
+  <div class="col-*-*"></div>
+</div>
+创建一行(<div class="row">)。然后， 添加是需要的列( .col-*-* 类中设置)。 第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*) 表示一个数字, 同一行的数字相加为 12。
+
+
+<div class="row">
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+</div>
+不在每个 col 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等： 两个 "col" ，每个就为 50% 的宽度。三个 "col"每个就为 33.33% 的宽度，四个 "col"每个就为 25% 的宽度，以此类推。同样，你可以使用 .col-sm|md|lg|xl 来设置列的响应规则。
+
+
+<div class="col-sm-3">.col-sm-3</div>
+<div class="col-sm-3">.col-sm-3</div>
+<div class="col-sm-3">.col-sm-3</div>
+<div class="col-sm-3">.col-sm-3</div>
+如果小于的话 ： 列将会上下堆叠排版
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-6">
+      <p>RUNOOB</p>
+    </div>
+    <div class="col-sm-9 col-md-6">
+      <p>菜鸟教程</p>
+    </div>
+  </div>
+</div>
+实例演示了在桌面设备的显示器上两个列的宽度各占 50%，如果在平板端则左边的宽度为 25%，右边的宽度为 75%, 在移动手机等小型设备上会堆叠显示。
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-6 col-lg-4 col-xl-2">
+      <p>RUNOOB</p>
+    </div>
+    <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+      <p>菜鸟教程</p>
+    </div>
+  </div>
+</div>
+实例在平板、桌面、大桌面显示器、超大桌面显示器的宽度比例为分别为：25%/75%、50%/50%、33.33%/66.67%、16.67/83.33%, 在移动手机等小型设备上会堆叠显示。
+
+
+偏移列通过 offset-*-* 类来设置。第一个星号( * )可以是 sm、md、lg、xl，表示屏幕设备类型，第二个星号( * )可以是 1 到 11 的数字。
+为了在大屏幕显示器上使用偏移，请使用 .offset-md-* 类。这些类会把一个列的左外边距（margin）增加 * 列，其中 * 范围是从 1 到 11。
+例如：.offset-md-4 是把.col-md-4 往右移了四列格。
+<div class="row">
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+</div>
+<div class="row">
+  <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+  <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+</div>
+<div class="row">
+  <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+</div>
+
+
+Bootstrap 4 默认的 font-size 为 16px, line-height 为 1.5。
+默认的 font-family 为 "Helvetica Neue", Helvetica, Arial, sans-serif。
+此外，所有的 <p> 元素 margin-top: 0 、 margin-bottom: 1rem (16px)。
+
+
+bootstrap 中定义了所有的 HTML 标题（h1 到 h6）的样式
+
+4个 Display 类来控制标题的样式: .display-1, .display-2, .display-3, .display-4
+
+<small> 元素用于创建字号更小的颜色更浅的文本
+
+<mark> 为黄色背景及有一定的内边距
+
+<abbr> 元素的样式为显示在文本底部的一条虚线边框:
+
+引用的内容可以在 <blockquote> 上添加 .blockquote 类 :
+<div class="container">
+  <h1>Blockquotes</h1>
+  <p>The blockquote element is used to present content from another source:</p>
+  <blockquote class="blockquote">
+    <p>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.</p>
+    <footer class="blockquote-footer">From WWF's website</footer>
+  </blockquote>
+</div>
+
+用于制作标题列表
+<div class="container">
+  <h1>Description Lists</h1>
+  <p>The dl element indicates a description list:</p>
+  <dl>
+    <dt>Coffee</dt>
+    <dd>- black hot drink</dd>
+    <dt>Milk</dt>
+    <dd>- white cold drink</dd>
+  </dl>
+</div>
+
+<code> 元素 可以用于标注代码
+
+<kbd> 标注键盘按键
+
+<pre> 元素 保留文本编辑格式（段落、空格等）
+
+
+.font-weight-bold	加粗文本
+.font-weight-normal	普通文本
+.font-weight-light	更细的文本
+.font-italic	斜体文本
+.lead	让段落更突出
+.small	指定更小文本 (为父元素的 85% )
+.text-left	左对齐
+.text-center	居中
+.text-right	右对齐
+.text-justify	设定文本对齐,段落中超出屏幕部分文字自动换行
+.text-nowrap	段落中超出屏幕部分不换行
+.text-lowercase	设定文本小写
+.text-uppercase	设定文本大写
+.text-uppercase	设定文本大写
+.initialism	显示在 <abbr> 元素中的文本以小号字体展示，且可以将小写字母转换为大写字母
+.list-unstyled	移除默认的列表样式，列表项中左对齐 ( <ul> 和 <ol> 中)。 这个类仅适用于直接子列表项 (如果需要移除嵌套的列表项，你需要在嵌套的列表中使用该样式)
+.list-inline	将所有列表项放置同一行
+.pre-scrollable	使 <pre> 元素可滚动，代码块区域最大高度为340px,一旦超出这个高度,就会在Y轴出现滚动条
+
+
+<div class="container">
+  <h2>代表指定意义的文本颜色</h2>
+  <p class="text-muted">柔和的文本。</p>
+  <p class="text-primary">重要的文本。</p>
+  <p class="text-success">执行成功的文本。</p>
+  <p class="text-info">代表一些提示信息的文本。</p>
+  <p class="text-warning">警告文本。</p>
+  <p class="text-danger">危险操作文本。</p>
+  <p class="text-secondary">副标题。</p>
+  <p class="text-dark">深灰色文字。</p>
+  <p class="text-light">浅灰色文本（白色背景上看不清楚）。</p>
+  <p class="text-white">白色文本（白色背景上看不清楚）。</p>
+</div>
+
+
+<div class="container">
+  <h2>文本颜色</h2>
+  <p>鼠标移动到链接。</p>
+  <a href="#" class="text-muted">柔和的链接。</a>
+  <a href="#" class="text-primary">主要链接。</a>
+  <a href="#" class="text-success">成功链接。</a>
+  <a href="#" class="text-info">信息文本链接。</a>
+  <a href="#" class="text-warning">警告链接。</a>
+  <a href="#" class="text-danger">危险链接。</a>
+  <a href="#" class="text-secondary">副标题链接。</a>
+  <a href="#" class="text-dark">深灰色链接。</a>
+  <a href="#" class="text-light">浅灰色链接。</a>
+</div>
+
+
+<div class="container">
+  <h2>背景颜色</h2>
+  <p class="bg-primary text-white">重要的背景颜色。</p>
+  <p class="bg-success text-white">执行成功背景颜色。</p>
+  <p class="bg-info text-white">信息提示背景颜色。</p>
+  <p class="bg-warning text-white">警告背景颜色</p>
+  <p class="bg-danger text-white">危险背景颜色。</p>
+  <p class="bg-secondary text-white">副标题背景颜色。</p>
+  <p class="bg-dark text-white">深灰背景颜色。</p>
+  <p class="bg-light text-dark">浅灰背景颜色。</p>
+</div>
+
+
+关闭提示框
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>成功!</strong> 指定操作成功提示信息。
+</div>
+对应的淡入淡出动画
+<div class="alert alert-danger alert-dismissible fade show">
+
+
+长度单位主要有以下几种em ex ch rem vw vh vm cm mm in pt pc px %，大概可以分为几种“绝对单位”和“相对单位”和“百分比单位”。
+
+绝对单位：px in cm mm
+
+相对单位：em rem  pt pc ex ch
+
+百分比单位：vw vh vm %
+
+下面主要说几个常用的单位
+
+px：绝对单位，页面按精确像素展示
+
+em：相对单位，基准点为父节点字体的大小，如果自身定义了font-size按自身来计算（浏览器默认字体是16px），整个页面内1em不是一个固定的值。
+
+rem：相对单位，可理解为”root em”, 相对根节点html的字体大小来计算，CSS3新加属性，chrome/firefox/IE9+支持。
+
+　　　rem在移动端应用可参考淘宝的页面http://m.taobao.com
+
+vw：viewpoint width，视窗宽度，1vw等于视窗宽度的1%。
+vh：viewpoint height，视窗高度，1vh等于视窗高度的1%。
+vmin：vw和vh中较小的那个。
+vmax：vw和vh中较大的那个。
+
+　　　　vw, vh, vmin, vmax：IE9+局部支持，chrome/firefox/safari/opera支持，ios safari 8+支持，android browser4.4+支持，chrome for android39支持
+
+其它的单位还有：
+%:百分比
+in:寸
+cm:厘米
+mm:毫米
+pt:point，大约1/72寸
+
+pc:pica，大约6pt，1/6寸
+
+ex：取当前作用效果的字体的x的高度，在无法确定x高度的情况下以0.5em计算(IE11及以下均不支持，firefox/chrome/safari/opera/ios safari/android browser4.4+等均需属性加么有前缀)
+
+ch:以节点所使用字体中的“0”字符为基准，找不到时为0.5em(ie10+,chrome31+,safair7.1+,opera26+,ios safari 7.1+,android browser4.4+支持)
+
+
+
+<button type="button" class="btn btn-primary active">点击后的按钮</button>
+<button type="button" class="btn btn-primary" disabled>禁止点击的按钮</button>
+<a href="#" class="btn btn-primary disabled">禁止点击的链接</a>
+
+
+.active 类可以设置按钮是可用的， disabled 属性可以设置按钮是不可点击的。 注意 <a> 元素不支持 disabled 属性，你可以通过添加 .disabled 类来禁止链接的点击。
+
+
+可以在 <div> 元素上添加 .btn-group 类来创建按钮组 --- lg sm --- vertical
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+
+创建一个基本的进度条的步骤如下：
+
+添加一个带有 .progress 类的 <div>。
+接着，在上面的 <div> 内，添加一个带有 class .progress-bar 的空的 <div>。
+添加一个带有百分比表示的宽度的 style 属性，例如 style="width:70%" 表示进度条在 70% 的位置。
+
+
+<ul class="list-group">
+  <li class="list-group-item">First item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul>
+要创建列表组，可以在 <ul> 元素上添加 .list-group 类, 在 <li> 元素上添加 .list-group-item 类
+
+
+可以在头部元素上使用 .card-title 类来设置卡片的标题 。 .card-text 类用于设置卡片正文的内容。 .card-link 类用于给链接设置颜色。
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Card title</h4>
+    <p class="card-text">Some example text. Some example text.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+
+  <h2>图片卡片</h2>
+  <p>图片在头部 (card-img-top):</p>
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="https://static.runoob.com/images/mix/img_avatar.png" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">John Doe</h4>
+      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+  </div>
+
+
+  <div class="card" style="width:500px">
+  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+  <div class="card-img-overlay">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text.</p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+
+
+.nav-justified 类可以设置导航项齐行等宽显示。
+<ul class="nav nav-pills nav-justified">..</ul>
+<ul class="nav nav-tabs nav-justified">..</ul>
