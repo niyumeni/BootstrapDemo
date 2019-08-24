@@ -322,3 +322,371 @@ ch:以节点所使用字体中的“0”字符为基准，找不到时为0.5em(i
 .nav-justified 类可以设置导航项齐行等宽显示。
 <ul class="nav nav-pills nav-justified">..</ul>
 <ul class="nav nav-tabs nav-justified">..</ul>
+
+导航栏的表单 <form> 元素使用 class="form-inline" 类来排版输入框与按钮：
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <form class="form-inline">
+    <input class="form-control" type="text" placeholder="Search">
+    <button class="btn btn-success" type="submit">Search</button>
+  </form>
+</nav>
+
+
+使用其他的输入框类，如 .input-group-addon 类用于在输入框前添加小标签。
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <form class="form-inline">
+    <div class="input-group">
+      <span class="input-group-addon">@</span>
+      <input type="text" class="form-control" placeholder="Username">
+    </div>
+  </form>
+</nav>
+
+使用 .fixed-top（.fixed-bottom ） 类来实现导航栏的固定顶部（底部）：
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  ...
+</nav>
+
+面包屑导航实例
+<nav class="breadcrumb">
+  <a class="breadcrumb-item" href="#">Home</a>
+  <a class="breadcrumb-item" href="#">Library</a>
+  <a class="breadcrumb-item" href="#">Data</a>
+  <span class="breadcrumb-item active">Bootstrap</span>
+</nav>
+
+
+
+<form>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+内联表单
+屏幕宽度在大于等于 576px 时才会水平显示。如果小于 576px 则会生成堆叠表单。
+
+所有内联表单中的元素都是左对齐的。
+
+注意：在屏幕宽度小于 576px 时为垂直堆叠，如果屏幕宽度大于等于576px时表单元素才会显示在同一个水平线上。
+
+内联表单需要在 <form> 元素上添加 .form-inline类。
+
+以下实例使用两个输入框，一个复选框，一个提交按钮来创建内联表单：
+
+
+自定义选择菜单可以在 <select> 元素上添加 .custom-select 类
+
+要设置自定义选择菜单大小，可以使用 .custom-select-sm、.custom-select-lg 来设置它们的大小:
+
+<form>
+  <!-- 小 -->
+  <select name="cars" class="custom-select-sm">
+    <option selected>比较小的自定义选择菜单</option>
+    <option value="Google">Google</option>
+    <option value="Runoob">Runoob</option>
+    <option value="Taobao">Taobao</option>
+  </select>
+
+  <!-- 大 -->
+  <select name="cars" class="custom-select-lg">
+    <option selected>比较大的自定义选择菜单</option>
+    <option value="Google">Google</option>
+    <option value="Runoob">Runoob</option>
+    <option value="Taobao">Taobao</option>
+  </select>
+</form>
+
+
+轮播参数说明：
+.carousel	创建一个轮播
+.carousel-indicators	为轮播添加一个指示符，就是轮播图底下的一个个小点，轮播的过程可以显示目前是第几张图。
+.carousel-inner	添加要切换的图片
+.carousel-item	指定每个图片的内容
+.carousel-control-prev	添加左侧的按钮，点击会返回上一张。
+.carousel-control-next	添加右侧按钮，点击会切换到下一张。
+.carousel-control-prev-icon	与 .carousel-control-prev 一起使用，设置左侧的按钮
+.carousel-control-next-icon	与 .carousel-control-next 一起使用，设置右侧的按钮
+.slide	切换图片的过渡和动画效果，如果你不需要这样的效果，可以删除这个类。
+
+
+模态框：
+<!-- 按钮：用于打开模态框 -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  打开模态框
+</button>
+
+<!-- 模态框 -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- 模态框头部 -->
+      <div class="modal-header">
+        <h4 class="modal-title">模态框头部</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- 模态框主体 -->
+      <div class="modal-body">
+        模态框内容..
+      </div>
+
+      <!-- 模态框底部 -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+通过添加 .modal-sm 类来创建一个小模态框，.modal-lg 类可以创建一个大模态框。
+
+尺寸类放在 <div>元素的 .modal-dialog 类后 :（小、大）
+<div class="modal-dialog modal-sm">
+<div class="modal-dialog modal-lg">
+
+
+通过向元素添加 data-toggle="tooltip" 来来创建提示框。
+title 属性的内容为提示框显示的内容：
+<a href="#" data-toggle="tooltip" title="我是提示内容!">鼠标移动到我这</a>
+script:
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+可以使用 data-placement 属性来设定提示框显示的方向: top, bottom, left 或 right:
+<a href="#" data-toggle="tooltip" data-placement="top" title="我是提示内容!">鼠标移动到我这</a>
+<a href="#" data-toggle="tooltip" data-placement="bottom" title="我是提示内容!">鼠标移动到我这</a>
+<a href="#" data-toggle="tooltip" data-placement="left" title="我是提示内容!">鼠标移动到我这</a>
+<a href="#" data-toggle="tooltip" data-placement="right" title="我是提示内容!">鼠标移动到我这</a>
+
+
+
+通过向元素添加 data-toggle="popover" 来来创建弹出框。
+
+title 属性的内容为弹出框的标题，data-content 属性显示了弹出框的文本内容
+<a href="#" data-toggle="popover" title="弹出框标题" data-content="弹出框内容">多次点我</a>
+script:
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+
+
+可以使用 data-placement 属性来设定弹出框显示的方向: top, bottom, left 或 right
+<a href="#" title="Header" data-toggle="popover" data-placement="top" data-content="Content">点我</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="bottom" data-content="Content">点我</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="left" data-content="Content">点我</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="right" data-content="Content">点我</a>
+
+
+默认情况下，弹出框在再次点击指定元素后就会关闭，可以使用 data-trigger="focus" 属性来设置在鼠标点击元素外部区域来关闭弹出框：
+<a href="#" title="取消弹出框" data-toggle="popover" data-trigger="focus" data-content="点击文档的其他地方关闭我">点我</a>
+现在鼠标移动到元素上显示，移除后消失的效果，可以使用 data-trigger 属性，并设置值为 "hover":
+<a href="#" title="Header" data-toggle="popover" data-trigger="hover" data-content="一些内容">鼠标移动到我这</a>
+
+
+滚动监听（Scrollspy）插件，即自动更新导航插件，会根据滚动条的位置自动更新对应的导航目标。其基本的实现是随着您的滚动。
+<!-- 可滚动区域 -->
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+...
+  <ul class="navbar-nav">
+    <li><a href="#section1">Section 1</a></li>
+    ...
+</nav>
+
+<!-- 第一部分内容 -->
+<div id="section1">
+  <h1>Section 1</h1>
+  <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+</div>
+...
+</body>
+要监听的元素（通常是 body）添加 data-spy="scroll" 。
+
+然后添加 data-target 属性，它的值为导航栏的 id 或 class (.navbar)。这样就可以联系上可滚动区域。
+
+注意可滚动项元素上的 id （<div id="section1">） 必须匹配导航栏上的链接选项 （<a href="#section1">)。
+
+可选项data-offset 属性用于计算滚动位置时，距离顶部的偏移像素。 默认为 10 px。
+
+设置相对定位: 使用 data-spy="scroll" 的元素需要将其 CSS position 属性设置为 "relative" 才能起作用。
+
+以下实例设置了垂直滚动监听：
+
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-sm-3 col-4" id="myScrollspy">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#section1">Section 1</a>
+          </li>
+          ...
+        </ul>
+      </nav>
+      <div class="col-sm-9 col-8">
+        <div id="section1">
+          <h1>Section 1</h1>
+          <p>Try to scroll this page and look at the navigation list while scrolling!</p>
+        </div>
+        ...
+      </div>
+    </div>
+  </div>
+
+</body>
+
+
+
+使用 border 类可以添加或移除边框:
+<span class="border"></span>
+<span class="border border-0"></span>
+<span class="border border-top-0"></span>
+<span class="border border-right-0"></span>
+<span class="border border-bottom-0"></span>
+<span class="border border-left-0"></span>
+
+
+边框颜色
+<span class="border border-primary"></span>
+<span class="border border-secondary"></span>
+<span class="border border-success"></span>
+<span class="border border-danger"></span>
+<span class="border border-warning"></span>
+<span class="border border-info"></span>
+<span class="border border-light"></span>
+<span class="border border-dark"></span>
+<span class="border border-white"></span>
+
+
+使用rounded 类可以添加圆角边框:
+<span class="rounded"></span>
+<span class="rounded-top"></span>
+<span class="rounded-right"></span>
+<span class="rounded-bottom"></span>
+<span class="rounded-left"></span>
+<span class="rounded-circle"></span>
+<span class="rounded-0"></span>
+
+
+.float-right 类用于设置元素右浮动， .float-left 设置元素左浮动, .clearfix 类用于清除浮动:
+<div class="clearfix">
+  <span class="float-left">左浮动</span>
+  <span class="float-right">右浮动</span>
+</div>
+
+
+可以设置浮动 (.float-*-left|right - * 为 sm, md, lg 或 xl)的方向依赖于屏幕的大小:
+<div class="float-sm-right">在大于小屏幕尺寸上右浮动</div><br>
+<div class="float-md-right">在大于中等屏幕尺寸上右浮动</div><br>
+<div class="float-lg-right">在大于大屏幕尺寸上右浮动</div><br>
+<div class="float-xl-right">在大于超大屏幕尺寸上右浮动</div><br>
+<div class="float-none">没有浮动</div>
+
+
+使用 .mx-auto 类来设置居中对齐:
+<div class="mx-auto bg-warning" style="width:150px">居中显示</div>
+
+
+元素上使用 w-* 类 (.w-25, .w-50, .w-75, .w-100, .mw-100) 来设置宽度:
+<div class="w-25 bg-warning">宽度 25%</div>
+<div class="w-50 bg-warning">宽度 50%</div>
+<div class="w-75 bg-warning">宽度 75%</div>
+<div class="w-100 bg-warning">宽度 100%</div>
+<div class="mw-100 bg-warning">最大宽度 100%</div>
+
+元素上使用 h-* 类 (.h-25, .h-50, .h-75, .h-100, .mh-100) 来设置高度:
+<div style="height:200px;background-color:#ddd">
+    <div class="h-25 bg-warning">高度 25%</div>
+    <div class="h-50 bg-warning">高度 50%</div>
+    <div class="h-75 bg-warning">高度 75%</div>
+    <div class="h-100 bg-warning">高度 100%</div>
+    <div class="mh-100 bg-warning" style="height:500px">最大高度 100%</div>
+</div>
+
+
+要创建一个多媒体对象，可以在容器元素上添加 .media 类，然后将多媒体内容放到子容器上，子容器需要添加 .media-body 类，然后添加外边距，内边距等效果:
+<div class="media border p-3">
+  <img src="mobile-icon.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+  <div class="media-body">
+    <h4>菜鸟教程</h4>
+    <p>学的不仅是技术，更是梦想！！！</p>
+  </div>
+</div>
+
+多媒体对象可以多个嵌套（一个多媒体对象中包含另外一个多媒体对象）
+要嵌套多媒体对象，可以把新的 .media 容器放到 .media-body 容器中:
+<div class="media border p-3">
+  <img src="mobile-icon.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+  <div class="media-body">
+    <h4>菜鸟教程</h4>
+    <p>学的不仅是技术，更是梦想！！！</p>
+    <div class="media p-3">
+      <img src="mobile-icon.png" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+      <div class="media-body">
+        <h4>菜鸟教程</h4>
+        <p>学的不仅是技术，更是梦想！！！</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+将头像图片显示在右侧，可以在 .media-body 容器后添加图片:
+<div class="media border p-3">
+  <div class="media-body">
+    <h4>菜鸟教程</h4>
+    <p>学的不仅是技术，更是梦想！！！</p>
+  </div>
+  <img src="mobile-icon.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
+</div>
+
+
+使用 align-self-* 相关类来设置多媒体对象的图片显示位置：
+<!-- 头部 -->
+<div class="media">
+  <img src="https://static.runoob.com/images/mobile-icon.png" class="align-self-start mr-3" style="width:60px">
+  <div class="media-body">
+    <h4>头部 -- 菜鸟教程</h4>
+    <p>学的不仅是技术，更是梦想！！！</p>
+  </div>
+</div>
+
+<!-- 居中 -->
+<div class="media">
+  <img src="https://static.runoob.com/images/mobile-icon.png" class="align-self-center mr-3" style="width:60px">
+  <div class="media-body">
+    <h4>居中 -- 菜鸟教程</h4>
+    <p>学的不仅是技术，更是梦想！！！</p>
+  </div>
+</div>
+
+<!-- 底部 -->
+<div class="media">
+  <img src="https://static.runoob.com/images/mobile-icon.png" class="align-self-end mr-3" style="width:60px">
+  <div class="media-body">
+    <h4>底部 -- 菜鸟教程</h4>
+    <p>学的不仅是技术，更是梦想！！！</p>
+  </div>
+</div>
+
+
+
